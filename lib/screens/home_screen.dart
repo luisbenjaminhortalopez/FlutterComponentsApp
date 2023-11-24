@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
     final MenuOptions = AppRoutes.MenuOptions;
     return  Scaffold(
       appBar: AppBar(
-        title: Text('Home Screen'),
+        title: const Text('Home Screen'),
       ),
       body: ListView.separated(
         itemBuilder: (context, index) => ListTile(
