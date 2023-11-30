@@ -32,6 +32,16 @@ class AppRoutes {
         icon: Icons.card_membership_rounded,
         name: 'Card',
         screen: const CardScreen()),
+         MenuOption(
+        route: 'avatar',
+        icon: Icons.person,
+        name: 'Circle Avatar',
+        screen: const AvatarScreen()),
+              MenuOption(
+        route: 'animated',
+        icon: Icons.play_circle_outline,
+        name: 'Animated Container',
+        screen: const AnimatedScreen()),
   ];
 
 

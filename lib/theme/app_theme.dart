@@ -11,7 +11,19 @@ static final ThemeData lightTheme =  ThemeData.light().copyWith(
 
         appBarTheme: const AppBarTheme(color: primary, elevation: 5),
 
-        textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(primary: primary))
+        textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(primary: primary)),
+
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: primary
+        ),
+
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.indigo,
+            shape: const StadiumBorder(),
+            elevation: 0
+          )
+        )
       );
       static final ThemeData darkTheme =  ThemeData.dark().copyWith(
         
