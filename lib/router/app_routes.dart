@@ -38,6 +38,11 @@ class AppRoutes {
         icon: Icons.play_circle_outline,
         name: 'Animated Container',
         screen: const AnimatedScreen()),
+         MenuOption(
+        route: 'inputs',
+        icon: Icons.input_rounded,
+        name: 'Text Inputs',
+        screen: const InputScreen()),
   ];
 
 
