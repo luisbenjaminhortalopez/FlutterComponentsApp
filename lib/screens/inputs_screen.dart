@@ -6,40 +6,89 @@ class InputScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myFormKey = GlobalKey<FormState>();
 
-final Map<String, String> formValues = {
-  'first_name': 'Benjamin',
-  'last_name' : 'Benjamin',
-  'email'     : 'lbhortaoopez@gmail.com',
-  'password'  : '123456',
-  'role'      : 'Admin'
-};
+    final Map<String, String> formValues = {
+      'first_name': 'Benjamin',
+      'last_name': 'Horta',
+      'email': 'lbhortaoopez@gmail.com',
+      'password': '123456',
+      'role': 'Admin'
+    };
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Inputs y forms'),
         ),
-        body:  SingleChildScrollView(
+        body: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Form(
-            
+            //formValue key permite validar los valores de los textFormFlields (custom_input_field.dart)
+            key: myFormKey,
             child: Column(
               children: [
-                const CustomInputField(labelText: 'Nombre', helperText: 'Nombre del usuario', hintText: '',),
+                CustomInputField(
+                    labelText: 'Nombre',
+                    helperText: 'Nombre del usuario',
+                    hintText: '',
+                    formProperty: 'first_name',
+                    formValues: formValues),
                 const SizedBox(height: 30),
-                 const    CustomInputField(labelText: 'Apellido', helperText: 'Apellido del usuario', hintText: '',),
+                CustomInputField(
+                    labelText: 'Apellido',
+                    helperText: 'Apellido del usuario',
+                    hintText: '',
+                    formProperty: 'last_name',
+                    formValues: formValues),
                 const SizedBox(height: 30),
-                 const  CustomInputField(labelText: 'Correo', helperText: 'Correo del usuario', hintText: '', keyboardType: TextInputType.emailAddress,),
+                CustomInputField(
+                    labelText: 'Correo',
+                    helperText: 'Correo del usuario',
+                    hintText: '',
+                    keyboardType: TextInputType.emailAddress,
+                    formProperty: 'email',
+                    formValues: formValues),
                 const SizedBox(height: 30),
-                  const CustomInputField(labelText: 'Contrasena', helperText: 'Contrasena del usuario', hintText: '', obscureText: true,),
+                CustomInputField(
+                    labelText: 'Contraseña',
+                    helperText: 'Contraseña del usuario',
+                    hintText: '',
+                    obscureText: true,
+                    formProperty: 'password',
+                    formValues: formValues),
                 const SizedBox(height: 30),
-                ElevatedButton( 
-                  child: const SizedBox(
-                    width: double.infinity,
-                    child: Center(child:  Text('Guardar'))
-                    ), 
-                    onPressed: (){})
+
+DropdownButtonFormField<String>(
+  items: const [
+    DropdownMenuItem(
+      value: 'Admin', child: Text('Admin')),
+       DropdownMenuItem(
+      value: 'Superuser', child: Text('Superuser')),
+        DropdownMenuItem(
+      value: 'Developer', child: Text('Developer')),
+        DropdownMenuItem(
+      value: 'Jr. Developer', child: Text('Jr.Developer')),
+      
+  ], 
+  onChanged:(value) {
+formValues['role'] = value ?? 'Admin';
+  }),
+
+
+                ElevatedButton(
+                    child: const SizedBox(
+                        width: double.infinity,
+                        child: Center(child: Text('Guardar'))),
+                    onPressed: () {
+                      //la siguiente linea minimisa el teclado al precionar el boton
+                      FocusScope.of(context).requestFocus(FocusNode());
+                      if (!myFormKey.currentState!.validate()) {
+                        print('Formulario no valido');
+                        return;
+                      }
+                      print(formValues);
+                    })
               ],
             ),
           ),
