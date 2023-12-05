@@ -43,6 +43,11 @@ class AppRoutes {
         icon: Icons.input_rounded,
         name: 'Text Inputs',
         screen: const InputScreen()),
+         MenuOption(
+        route: 'slider',
+        icon: Icons.accessible_forward_sharp,
+        name: 'Slider',
+        screen: const SliderScreen()),
   ];
 
 
