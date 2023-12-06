@@ -24,7 +24,7 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
      random.nextInt(255),
       random.nextInt(255),
       1);
-    _borderRadius = BorderRadius.circular( random.nextInt(60).toDouble() + 100);
+    _borderRadius = BorderRadius.circular( random.nextInt(100).toDouble() + 100);
     setState(() {
       
     });

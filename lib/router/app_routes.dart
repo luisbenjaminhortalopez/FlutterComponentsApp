@@ -48,6 +48,11 @@ class AppRoutes {
         icon: Icons.accessible_forward_sharp,
         name: 'Slider',
         screen: const SliderScreen()),
+        MenuOption(
+         route: 'Infinite Scroll',
+        icon: Icons.image_rounded,
+        name: 'Infinite Scroll',
+        screen: const ListViewBuiderScreen()),
   ];
 
 

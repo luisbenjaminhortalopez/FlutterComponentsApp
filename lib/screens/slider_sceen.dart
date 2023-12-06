@@ -39,7 +39,7 @@ class _SliderScreenState extends State<SliderScreen> {
               activeColor: AppTheme.primary,
               value: _sliderEnabled,
               onChanged: ((value) => setState(() {
-                    _sliderEnabled = value ?? true;
+                    _sliderEnabled = value;
                   })),
             ),
 
@@ -52,7 +52,7 @@ class _SliderScreenState extends State<SliderScreen> {
                   fit: BoxFit.contain,
                   width: _sliderValue,
                 ),
-              
+               
               ),
             ),
 
